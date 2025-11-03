@@ -44,9 +44,9 @@ export class BLEUMint {
     // Store scroll and relic
     this.scrolls.set(relic.id, voiceScroll);
 
-    // Record on blockchain (pass a copy to avoid modifying the blockchain data)
+    // Record on blockchain (create shallow copy to avoid modifying the blockchain data)
     if (this.darkBleuChain) {
-      const relicCopy = JSON.parse(JSON.stringify(relic));
+      const relicCopy = { ...relic, metadata: { ...relic.metadata } };
       const blockId = this.darkBleuChain.recordRelic(relicCopy);
       relic.blockId = blockId;
       relic.verified = true;
@@ -85,9 +85,9 @@ export class BLEUMint {
       }
     };
 
-    // Record on blockchain (pass a copy to avoid modifying the blockchain data)
+    // Record on blockchain (create shallow copy to avoid modifying the blockchain data)
     if (this.darkBleuChain) {
-      const relicCopy = JSON.parse(JSON.stringify(collectiveRelic));
+      const relicCopy = { ...collectiveRelic, metadata: { ...collectiveRelic.metadata } };
       const blockId = this.darkBleuChain.recordRelic(relicCopy);
       collectiveRelic.blockId = blockId;
       collectiveRelic.verified = true;

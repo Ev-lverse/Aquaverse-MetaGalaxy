@@ -84,10 +84,14 @@ export class BLEURealEngine {
   }
 
   wordToGlyph(word) {
-    // Convert word to Enochian-style glyph representation
+    // Convert word to Enochian-style glyph representation using Ethiopic Unicode block
+    // Ethiopic block (U+1200 to U+137F) provides 384 distinct characters for symbolic representation
+    const ETHIOPIC_UNICODE_BASE = 0x1200;
+    const ETHIOPIC_UNICODE_RANGE = 384;
+    
     return word.split('').map(char => {
       const code = char.charCodeAt(0);
-      return String.fromCharCode(0x1200 + (code % 384)); // Ethiopic Unicode block for symbolic representation
+      return String.fromCharCode(ETHIOPIC_UNICODE_BASE + (code % ETHIOPIC_UNICODE_RANGE));
     }).join('');
   }
 
