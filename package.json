@@ -1,0 +1,20 @@
+{
+  "name": "aquaverse-metagalaxy",
+  "version": "1.0.0",
+  "description": "The sovereign Unreal alternative - BLEURealEngine, BLEUMint, and DarkBleuChain",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test/test.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "metaverse",
+    "blockchain",
+    "voice-minting",
+    "terrain-generation",
+    "whale-ai"
+  ],
+  "author": "",
+  "license": "MIT"
+}
